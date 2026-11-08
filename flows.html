@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MurrHub — потоки</title>
+  <link rel="icon" href="media/paw-icon.png" type="image/png" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/flows.css" />
+  <script src="js/chocolate.js"></script>
+  <script>
+    (function () {
+      var n = localStorage.getItem("murrhub-chocolate");
+      var theme = localStorage.getItem("murrhub-theme");
+      var value = n == null || n === "" ? 78 : Number(n);
+      if (!isFinite(value)) value = 78;
+      document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light");
+    })();
+  </script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="index.html#/client/feed"><img class="mark" src="media/paw-icon.png" alt="" />Murr<em>Hub</em></a>
+    <p class="bar-note">Потоки · каждый шаг открывает экран</p>
+    <div class="bar-actions">
+      <button type="button" id="theme" class="ghost" aria-pressed="false">Тёмная</button>
+      <a class="ghost" href="index.html#/client/onboarding">Открыть прототип</a>
+    </div>
+  </header>
+  <main class="flows">
+    <p class="kicker">Вильнюс · один человек — один профиль</p>
+    <h1>Как ходят по MurrHub</h1>
+    <p class="lede">Запись — первая работа. Сначала пол и возраст, потом интересы иконками, и сразу лента. На первом заходе короткая подсказка — остаться или перейти в поиск. Поиск и карта остаются в приложении. Салона нет. Светлая и тёмная тема переключаются и здесь, и в телефоне.</p>
+
+    <div class="lanes">
+      <section class="lane" aria-label="Клиент">
+        <p class="cap">Роль</p>
+        <h2>Клиент</h2>
+        <p class="intro">Мария ищет работу и записывается. Город на карточке всегда из профиля мастера.</p>
+
+        <div class="step">
+          <p class="cap">До интересов</p>
+          <a class="node" href="index.html#/client/welcome"><b>Пол и возраст</b><span>Два выбора, не анкета. Потом интересы</span></a>
+        </div>
+        <div class="step">
+          <a class="node" href="index.html#/client/onboarding"><b>Интересы</b><span>Иконки: ногти, волосы, тату, пирсинг, брови, ресницы</span></a>
+        </div>
+        <div class="step">
+          <p class="cap">Дом после интересов</p>
+          <a class="node" href="index.html#/client/feed"><b>Лента</b><span>Первый экран. На карточках нет цены</span></a>
+        </div>
+        <div class="step">
+          <p class="cap">Подсказка только в первый заход</p>
+          <div class="fork two">
+            <a class="node" href="index.html#/client/feed"><b>Остаться</b><span>Закрыть лист и смотреть ленту</span></a>
+            <a class="node" href="index.html#/client/search"><b>Сразу в поиск</b><span>Поиск не дом, но он рядом</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <p class="cap">Рядом, не вместо ленты</p>
+          <div class="fork two">
+            <a class="node" href="index.html#/client/search"><b>Поиск</b><span>Услуга, мастер, настроение</span></a>
+            <a class="node" href="index.html#/client/map"><b>Карта</b><span>Районы Вильнюса</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/client/map/alina"><b>Пин на карте</b><span>Алина · Старый город</span></a>
+            <a class="node" href="index.html#/client/search/filters"><b>Фильтры</b><span>Цена, район, окна, скидка</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/client/feed/why"><b>Как собрана лента</b><span>Лайки, заходы, город, услуга, цена, скидка, настроение</span></a>
+            <a class="node" href="index.html#/client/post/p-alina-note"><b>Текстовая публикация</b><span>В ленте блок, внутри текст до «...». Открывает профиль того, кто делает услугу</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <p class="cap">На открытой публикации</p>
+          <div class="fork two">
+            <a class="node" href="index.html#/client/post/p-alina-ba"><b>Написать об услуге</b><span>Круглая оранжевая стрелка чуть наезжает на публикацию. Чат с ней</span></a>
+            <a class="node" href="index.html#/client/chat/t-alina"><b>Чат с работой</b><span>Тот же результат, что «в чат» у репоста</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork three">
+            <a class="node" href="index.html#/client/post/p-alina-work"><b>Без цены</b><span>Услуга тоже необязательна</span></a>
+            <a class="node" href="index.html#/client/post/p-alina-ba/comments"><b>Комментарии</b><span>Лайк, сохранение и репост на работе</span></a>
+            <a class="node" href="index.html#/client/post/p-alina-ba/repost"><b>Репост</b><span>В профиль или в чат</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/client/master/alina"><b>Профиль мастера</b><span>Портфолио, рейтинг, галочка, город</span></a>
+            <a class="node" href="index.html#/client/master/alina/certs"><b>Сертификаты</b><span>Боковая кнопка, не главный блок</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <p class="cap">Запись</p>
+          <div class="fork two">
+            <a class="node" href="index.html#/client/book/alina"><b>Окна видны</b><span>Утро в будни со скидкой</span></a>
+            <a class="node" href="index.html#/client/book/kasparas"><b>Окна скрыты</b><span>Дальше только чат</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/client/book/alina/confirm"><b>Проверка записи</b><span>Если окно уже выбрано</span></a>
+            <a class="node" href="index.html#/client/book/alina/done"><b>Запрос ушёл</b><span>Без оплаты в приложении</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <p class="cap">Написать об этом</p>
+          <div class="fork three">
+            <a class="node" href="index.html#/client/chats"><b>Список чатов</b><span>Внизу круглая кнопка «Календарь»</span></a>
+            <a class="node" href="index.html#/client/chat/t-alina"><b>Чат с Алиной</b><span>Круглая кнопка «Календарь» у поля сообщения</span></a>
+            <a class="node" href="index.html#/client/chat/t-alina/calendar"><b>Календарь</b><span>Уже записанные визиты из образца</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork three">
+            <a class="node" href="index.html#/client/visits"><b>Визиты</b><span>Будущие и прошедшие</span></a>
+            <a class="node" href="index.html#/client/review/v-eva"><b>Отзыв</b><span>После визита к Еве</span></a>
+            <a class="node" href="index.html#/client/chat/t-eva"><b>Чат после визита</b><span>Там же просьба об отзыве</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <p class="cap">Свой запрос</p>
+          <div class="fork two">
+            <a class="node" href="index.html#/client/compose"><b>Темы</b><span>Только ремесло. Текст и фото без отдельного доступа</span></a>
+            <a class="node" href="index.html#/client/post/cp-seek"><b>Чужой запрос</b><span>Смотреть можно сразу</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork three">
+            <a class="node" href="index.html#/client/profile"><b>Профиль</b><span>Сохранения, подписки, запросы</span></a>
+            <a class="node" href="index.html#/client/saves"><b>Сохранённое</b><span></span></a>
+            <a class="node" href="index.html#/client/follows"><b>Подписки</b><span></span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="lane" aria-label="Мастер">
+        <p class="cap">Роль</p>
+        <h2>Мастер</h2>
+        <p class="intro">Алина Мороз. Тот же тип профиля, что у клиента: человек, не салон. Подписка открывает публикацию и приём записей.</p>
+
+        <div class="step">
+          <a class="node" href="index.html#/master/bookings"><b>Записи</b><span>Входящие окна. Без подписки подтверждение закрыто</span></a>
+        </div>
+        <div class="step">
+          <a class="node" href="index.html#/master/booking/b-greta"><b>Запрос Греты</b><span>Подтвердить или написать</span></a>
+        </div>
+        <div class="step">
+          <a class="node" href="index.html#/master/paywall"><b>Подписка</b><span>Доступ к постам и записям. Не касса</span></a>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/master/posts"><b>Работы</b><span>То, что уже видит город</span></a>
+            <a class="node" href="index.html#/master/compose"><b>Новая работа</b><span>Фото, по желанию цена, время, услуга</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <a class="node" href="index.html#/master/slots"><b>Слоты</b><span>Открытые клиент видит, закрытые — нет</span></a>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/master/chats"><b>Чаты</b><span>Клиенты Алины</span></a>
+            <a class="node" href="index.html#/master/chat/t-greta"><b>Чат с Гретой</b><span>Текст и голосовые</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/master/profile"><b>Профиль</b><span>Портфолио первым, факты значками</span></a>
+            <a class="node" href="index.html#/master/certs"><b>Сертификаты</b><span>Та же боковая дверь</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <div class="fork two">
+            <a class="node" href="index.html#/master/services"><b>Услуги и цены</b><span></span></a>
+            <a class="node" href="index.html#/master/reviews"><b>Отзывы</b><span>После визитов</span></a>
+          </div>
+        </div>
+        <div class="step">
+          <a class="node" href="index.html#/master/later"><b>Комиссия и оплаты</b><span>Экран «не в этой версии». Кассы нет</span></a>
+        </div>
+      </section>
+    </div>
+
+    <section class="lane later">
+      <p class="cap">Сознательно не в этой версии</p>
+      <h2>Нет отдельных экранов</h2>
+      <div class="fork three" style="margin-top:12px">
+        <a class="node" href="index.html#/master/compose"><b>Посты из жизни</b><span>Нет композитора. На публикации работы — только пометка, что позже их будет мало</span></a>
+        <a class="node" href="index.html#/master/later"><b>Комиссия с записи</b><span>Не в этой версии</span></a>
+        <a class="node" href="index.html#/master/later"><b>Оплата визита в приложении</b><span>Не в этой версии. Клиент платит мастеру напрямую</span></a>
+      </div>
+      <p class="note">Салона как сущности нет ни в одном шаге: нельзя открыть «место» отдельно от человека.</p>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var stored = localStorage.getItem("murrhub-theme");
+      var theme = stored === "dark" ? "dark" : "light";
+      var choc = localStorage.getItem("murrhub-chocolate");
+      var value = choc == null || choc === "" ? 78 : Number(choc);
+      if (!isFinite(value)) value = 78;
+      if (window.MurrChocolate) MurrChocolate.apply(value, theme);
+      document.documentElement.dataset.theme = theme;
+      var btn = document.getElementById("theme");
+      function label() { btn.textContent = theme === "dark" ? "Светлая" : "Тёмная"; btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false"); }
+      label();
+      btn.addEventListener("click", function () {
+        theme = theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("murrhub-theme", theme);
+        if (window.MurrChocolate) MurrChocolate.apply(value, theme);
+        label();
+      });
+    })();
+  </script>
+</body>
+</html>
