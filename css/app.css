@@ -1494,7 +1494,6 @@ html[data-preset="chocolate"] .splash { background: #241610; }
   background: var(--btn);
   color: var(--btn-ink);
 }
-
 .namepage {
   min-height: 100vh;
   display: grid;
