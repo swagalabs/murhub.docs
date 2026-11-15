@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#14110e" />
   <title>MurrHub — потоки</title>
   <link rel="icon" href="media/paw-icon.png" type="image/png" />
   <link rel="stylesheet" href="css/app.css" />
   <link rel="stylesheet" href="css/flows.css" />
   <script src="js/chocolate.js"></script>
-  <script>
-    (function () {
-      var n = localStorage.getItem("murrhub-chocolate");
-      var theme = localStorage.getItem("murrhub-theme");
-      var value = n == null || n === "" ? 78 : Number(n);
-      if (!isFinite(value)) value = 78;
-      document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
-      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light");
-    })();
-  </script>
+  <script src="js/themes.js"></script>
+  <script>MurrThemes.paint();</script>
 </head>
 <body>
   <header class="bar">
     <a class="brand" href="index.html#/client/feed"><img class="mark" src="media/paw-icon.png" alt="" />Murr<em>Hub</em></a>
     <p class="bar-note">Потоки · каждый шаг открывает экран</p>
     <div class="bar-actions">
-      <button type="button" id="theme" class="ghost" aria-pressed="false">Тёмная</button>
+      <div class="theme-track" id="theme-track" role="group" aria-label="Тема" title="Стрелки влево и вправо — соседняя тема">
+        <button type="button" class="nav" id="theme-prev" aria-label="Предыдущая тема">‹</button>
+        <button type="button" id="theme-current" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-panel" aria-label="Список тем, сейчас Шоколад">
+          <span class="theme-swatches" id="theme-swatches" aria-hidden="true"><i style="background:#14110e"></i><i style="background:#262019"></i><i style="background:#e08955"></i></span>
+          <span class="theme-label" id="theme-label">Шоколад</span>
+          <span class="theme-chev" aria-hidden="true">▾</span>
+        </button>
+        <button type="button" class="nav" id="theme-next" aria-label="Следующая тема">›</button>
+      </div>
+      <label class="choc" id="choc" for="chocolate" hidden>Шоколад
+        <input id="chocolate" type="range" min="0" max="100" value="78" aria-label="Светлая тема: от песка к шоколаду" />
+      </label>
       <a class="ghost" href="index.html#/client/onboarding">Открыть прототип</a>
     </div>
   </header>
   <main class="flows">
     <p class="kicker">Вильнюс · один человек — один профиль</p>
     <h1>Как ходят по MurrHub</h1>
-    <p class="lede">Запись — первая работа. Сначала пол и возраст, потом интересы иконками, и сразу лента. На первом заходе короткая подсказка — остаться или перейти в поиск. Поиск и карта остаются в приложении. Салона нет. Светлая и тёмная тема переключаются и здесь, и в телефоне.</p>
+    <p class="lede">Запись — первая работа. Сначала пол и возраст, потом интересы иконками, и сразу лента. На первом заходе короткая подсказка — остаться или перейти в поиск. Поиск и карта остаются в приложении. Салона нет. Тема переключается и здесь, и в телефоне.</p>
 
     <div class="lanes">
       <section class="lane" aria-label="Клиент">
@@ -198,26 +202,6 @@
       <p class="note">Салона как сущности нет ни в одном шаге: нельзя открыть «место» отдельно от человека.</p>
     </section>
   </main>
-  <script>
-    (function () {
-      var stored = localStorage.getItem("murrhub-theme");
-      var theme = stored === "dark" ? "dark" : "light";
-      var choc = localStorage.getItem("murrhub-chocolate");
-      var value = choc == null || choc === "" ? 78 : Number(choc);
-      if (!isFinite(value)) value = 78;
-      if (window.MurrChocolate) MurrChocolate.apply(value, theme);
-      document.documentElement.dataset.theme = theme;
-      var btn = document.getElementById("theme");
-      function label() { btn.textContent = theme === "dark" ? "Светлая" : "Тёмная"; btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false"); }
-      label();
-      btn.addEventListener("click", function () {
-        theme = theme === "dark" ? "light" : "dark";
-        document.documentElement.dataset.theme = theme;
-        localStorage.setItem("murrhub-theme", theme);
-        if (window.MurrChocolate) MurrChocolate.apply(value, theme);
-        label();
-      });
-    })();
-  </script>
+  <script>MurrThemes.mount();</script>
 </body>
 </html>
