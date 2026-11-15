@@ -12,11 +12,12 @@
   <script>
     (function () {
       var n = localStorage.getItem("murrhub-chocolate");
+      var color = localStorage.getItem("murrhub-base-color");
       var theme = localStorage.getItem("murrhub-theme");
       var value = n == null || n === "" ? 78 : Number(n);
       if (!isFinite(value)) value = 78;
       document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
-      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light");
+      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light", color);
     })();
   </script>
 </head>
@@ -35,8 +36,12 @@
           <button type="button" id="role-client" data-role="client">Клиент</button>
           <button type="button" id="role-master" data-role="master">Мастер</button>
         </div>
-        <label class="choc" for="chocolate">Шоколад
-          <input id="chocolate" type="range" min="0" max="100" value="78" aria-label="Светлая тема: от песка к шоколаду" />
+        <label class="choc" for="chocolate">Контраст
+          <input id="chocolate" type="range" min="0" max="100" value="78" aria-label="Контраст светлой палитры" />
+        </label>
+        <label class="color-control" for="base-color">Основной цвет
+          <input id="base-color-picker" type="color" value="#c4622d" aria-label="Выбрать основной цвет" />
+          <input id="base-color" type="text" value="#c4622d" autocomplete="off" spellcheck="false" maxlength="7" aria-label="Основной цвет в формате hex" />
         </label>
         <button type="button" id="theme" class="ghost" aria-pressed="false">Тёмная</button>
         <button type="button" id="restart" class="ghost">Начать с начала</button>

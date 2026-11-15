@@ -94,6 +94,7 @@ function defaultState() {
   return {
     theme: "light",
     chocolate: 78,
+    baseColor: "#c4622d",
     onboarded: false,
     gender: "",
     age: "",
@@ -172,6 +173,7 @@ function save() {
   localStorage.setItem(KEY, JSON.stringify(copy));
   localStorage.setItem("murrhub-theme", S.theme === "dark" ? "dark" : "light");
   localStorage.setItem("murrhub-chocolate", String(S.chocolate));
+  localStorage.setItem("murrhub-base-color", S.baseColor);
 }
 
 function esc(s) {
@@ -1678,7 +1680,7 @@ function noteVisit(id) {
 function applyTheme() {
   const dark = S.theme === "dark";
   document.documentElement.dataset.theme = dark ? "dark" : "light";
-  if (window.MurrChocolate) MurrChocolate.apply(S.chocolate, dark ? "dark" : "light");
+  if (window.MurrChocolate) MurrChocolate.apply(S.chocolate, dark ? "dark" : "light", S.baseColor);
   const btn = document.getElementById("theme");
   if (btn) {
     btn.textContent = dark ? "Светлая" : "Тёмная";
@@ -1686,6 +1688,10 @@ function applyTheme() {
   }
   const slider = document.getElementById("chocolate");
   if (slider && document.activeElement !== slider) slider.value = String(S.chocolate);
+  const color = document.getElementById("base-color");
+  const picker = document.getElementById("base-color-picker");
+  if (color && document.activeElement !== color) color.value = S.baseColor;
+  if (picker) picker.value = S.baseColor;
 }
 
 let splashTimer = 0;
@@ -2126,6 +2132,21 @@ function bind() {
     applyTheme();
     save();
   });
+  const baseColor = document.getElementById("base-color");
+  const colorPicker = document.getElementById("base-color-picker");
+  const setBaseColor = (value) => {
+    const normalized = window.MurrChocolate && MurrChocolate.normalizeHex(value);
+    if (!normalized) return false;
+    S.baseColor = normalized;
+    applyTheme(); save();
+    return true;
+  };
+  if (colorPicker) colorPicker.addEventListener("input", () => setBaseColor(colorPicker.value));
+  if (baseColor) {
+    baseColor.addEventListener("input", () => { if (setBaseColor(baseColor.value)) baseColor.setCustomValidity(""); else baseColor.setCustomValidity("Введите hex-цвет: #RRGGBB"); });
+    baseColor.addEventListener("change", () => { if (!setBaseColor(baseColor.value)) { baseColor.value = S.baseColor; baseColor.setCustomValidity(""); } });
+    baseColor.addEventListener("blur", () => { if (!setBaseColor(baseColor.value)) { baseColor.value = S.baseColor; baseColor.setCustomValidity(""); } });
+  }
   const restart = document.getElementById("restart");
   if (restart) restart.addEventListener("click", restartStory);
   const paw = document.getElementById("splash-paw");
@@ -2140,6 +2161,7 @@ function bind() {
     localStorage.removeItem(KEY);
     localStorage.setItem("murrhub-theme", "light");
     localStorage.setItem("murrhub-chocolate", "78");
+    localStorage.setItem("murrhub-base-color", "#c4622d");
     S = defaultState();
     applyTheme();
     if (location.hash === "#/client/welcome") render();
@@ -2242,11 +2264,13 @@ function selfTest() {
 function boot() {
   S = loadState();
   const storedChoc = localStorage.getItem("murrhub-chocolate");
+  const storedColor = localStorage.getItem("murrhub-base-color");
   if (storedChoc != null && storedChoc !== "" && Number.isFinite(Number(storedChoc))) {
     S.chocolate = Math.max(0, Math.min(100, Math.round(Number(storedChoc))));
   } else if (typeof S.chocolate !== "number" || !Number.isFinite(S.chocolate)) {
     S.chocolate = 78;
   }
+  if (window.MurrChocolate) S.baseColor = MurrChocolate.normalizeHex(storedColor || S.baseColor) || MurrChocolate.DEFAULT_COLOR;
   if (/[?&]theme=dark/.test(location.search || "")) S.theme = "dark";
   if (/[?&]theme=light/.test(location.search || "")) S.theme = "light";
   applyTheme();

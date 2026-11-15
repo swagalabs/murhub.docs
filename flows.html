@@ -11,11 +11,12 @@
   <script>
     (function () {
       var n = localStorage.getItem("murrhub-chocolate");
+      var color = localStorage.getItem("murrhub-base-color");
       var theme = localStorage.getItem("murrhub-theme");
       var value = n == null || n === "" ? 78 : Number(n);
       if (!isFinite(value)) value = 78;
       document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
-      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light");
+      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light", color);
     })();
   </script>
 </head>
@@ -203,9 +204,10 @@
       var stored = localStorage.getItem("murrhub-theme");
       var theme = stored === "dark" ? "dark" : "light";
       var choc = localStorage.getItem("murrhub-chocolate");
+      var color = localStorage.getItem("murrhub-base-color");
       var value = choc == null || choc === "" ? 78 : Number(choc);
       if (!isFinite(value)) value = 78;
-      if (window.MurrChocolate) MurrChocolate.apply(value, theme);
+      if (window.MurrChocolate) MurrChocolate.apply(value, theme, color);
       document.documentElement.dataset.theme = theme;
       var btn = document.getElementById("theme");
       function label() { btn.textContent = theme === "dark" ? "Светлая" : "Тёмная"; btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false"); }
@@ -214,7 +216,7 @@
         theme = theme === "dark" ? "light" : "dark";
         document.documentElement.dataset.theme = theme;
         localStorage.setItem("murrhub-theme", theme);
-        if (window.MurrChocolate) MurrChocolate.apply(value, theme);
+        if (window.MurrChocolate) MurrChocolate.apply(value, theme, color);
         label();
       });
     })();

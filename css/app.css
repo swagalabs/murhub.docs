@@ -141,6 +141,11 @@ img { max-width: 100%; }
   font-weight: 650;
 }
 .choc input { width: 116px; margin: 0; accent-color: var(--btn); }
+.color-control { display: flex; align-items: center; gap: 7px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 8px 5px 12px; color: var(--ink); font-size: 13px; font-weight: 650; }
+.color-control input[type="color"] { width: 28px; height: 28px; padding: 0; border: 0; border-radius: 50%; background: none; cursor: pointer; }
+.color-control input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+.color-control input[type="color"]::-webkit-color-swatch { border: 1px solid var(--line); border-radius: 50%; }
+.color-control input[type="text"] { width: 76px; border: 0; border-radius: 8px; padding: 4px 6px; background: color-mix(in srgb, var(--bg) 55%, transparent); font: 650 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
 .bar-note { margin: 0; color: var(--muted); font-size: 13px; flex: 1; }
 .bar-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .switch { display: flex; background: var(--surface); border-radius: 999px; padding: 3px; border: 1px solid var(--line); }
