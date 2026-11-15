@@ -92,8 +92,10 @@ let toastTimer = 0;
 
 function defaultState() {
   return {
-    theme: "light",
+    theme: "dark",
+    preset: "chocolate",
     chocolate: 78,
+    custom: null,
     onboarded: false,
     gender: "",
     age: "",
@@ -150,28 +152,39 @@ function loadState() {
   const base = defaultState();
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || "null");
-    const theme = localStorage.getItem("murrhub-theme");
-    if (theme === "dark" || theme === "light") base.theme = theme;
-    if (!raw || typeof raw !== "object") return base;
-    const ui = Object.assign(base.ui, raw.ui || {});
-    ui.filters = Object.assign(defaultState().ui.filters, (raw.ui && raw.ui.filters) || {});
-    ui.draft = Object.assign(defaultState().ui.draft, (raw.ui && raw.ui.draft) || {});
-    ui.clientForm = Object.assign(defaultState().ui.clientForm, (raw.ui && raw.ui.clientForm) || {});
-    ui.masterForm = Object.assign(defaultState().ui.masterForm, (raw.ui && raw.ui.masterForm) || {});
-    ui.review = Object.assign(defaultState().ui.review, (raw.ui && raw.ui.review) || {});
-    if (!Array.isArray(ui.masterForm.photos)) ui.masterForm.photos = [];
-    if (!Array.isArray(ui.masterForm.vibes)) ui.masterForm.vibes = [];
-    return Object.assign(base, raw, { ui });
-  } catch (e) {
-    return base;
+    if (raw && typeof raw === "object") {
+      const ui = Object.assign(base.ui, raw.ui || {});
+      ui.filters = Object.assign(defaultState().ui.filters, (raw.ui && raw.ui.filters) || {});
+      ui.draft = Object.assign(defaultState().ui.draft, (raw.ui && raw.ui.draft) || {});
+      ui.clientForm = Object.assign(defaultState().ui.clientForm, (raw.ui && raw.ui.clientForm) || {});
+      ui.masterForm = Object.assign(defaultState().ui.masterForm, (raw.ui && raw.ui.masterForm) || {});
+      ui.review = Object.assign(defaultState().ui.review, (raw.ui && raw.ui.review) || {});
+      if (!Array.isArray(ui.masterForm.photos)) ui.masterForm.photos = [];
+      if (!Array.isArray(ui.masterForm.vibes)) ui.masterForm.vibes = [];
+      Object.assign(base, raw, { ui });
+    }
+  } catch (e) { /* keep defaults */ }
+  if (window.MurrThemes) {
+    const stored = MurrThemes.read();
+    const q = MurrThemes.queryPreset();
+    base.chocolate = stored.chocolate;
+    base.custom = stored.custom;
+    base.preset = q || stored.preset;
+    base.theme = MurrThemes.mode(base.preset);
   }
+  return base;
 }
 
 function save() {
   const copy = Object.assign({}, S);
   localStorage.setItem(KEY, JSON.stringify(copy));
-  localStorage.setItem("murrhub-theme", S.theme === "dark" ? "dark" : "light");
-  localStorage.setItem("murrhub-chocolate", String(S.chocolate));
+  if (window.MurrThemes) {
+    MurrThemes.persist({
+      preset: S.preset || "chocolate",
+      chocolate: S.chocolate,
+      custom: S.custom || null,
+    });
+  }
 }
 
 function esc(s) {
@@ -1676,16 +1689,12 @@ function noteVisit(id) {
 }
 
 function applyTheme() {
-  const dark = S.theme === "dark";
-  document.documentElement.dataset.theme = dark ? "dark" : "light";
-  if (window.MurrChocolate) MurrChocolate.apply(S.chocolate, dark ? "dark" : "light");
-  const btn = document.getElementById("theme");
-  if (btn) {
-    btn.textContent = dark ? "Светлая" : "Тёмная";
-    btn.setAttribute("aria-pressed", dark ? "true" : "false");
-  }
-  const slider = document.getElementById("chocolate");
-  if (slider && document.activeElement !== slider) slider.value = String(S.chocolate);
+  if (!window.MurrThemes) return;
+  MurrThemes.show({
+    preset: S.preset || "chocolate",
+    chocolate: S.chocolate,
+    custom: S.custom || null,
+  });
 }
 
 let splashTimer = 0;
@@ -2116,16 +2125,17 @@ function bind() {
   phone.addEventListener("error", (e) => {
     if (e.target && e.target.tagName === "IMG") e.target.style.opacity = "0";
   }, true);
-  document.getElementById("theme").addEventListener("click", () => {
-    S.theme = S.theme === "dark" ? "light" : "dark";
-    applyTheme(); save();
-  });
-  const choc = document.getElementById("chocolate");
-  if (choc) choc.addEventListener("input", () => {
-    S.chocolate = Math.max(0, Math.min(100, Math.round(Number(choc.value) || 0)));
-    applyTheme();
-    save();
-  });
+  if (window.MurrThemes) {
+    MurrThemes.mount({
+      onChange: (s) => {
+        S.preset = s.preset;
+        S.chocolate = s.chocolate;
+        S.custom = s.custom;
+        S.theme = s.mode;
+        save();
+      },
+    });
+  }
   const restart = document.getElementById("restart");
   if (restart) restart.addEventListener("click", restartStory);
   const paw = document.getElementById("splash-paw");
@@ -2137,10 +2147,13 @@ function bind() {
     });
   });
   document.getElementById("reset").addEventListener("click", () => {
+    const kept = S.custom;
     localStorage.removeItem(KEY);
-    localStorage.setItem("murrhub-theme", "light");
-    localStorage.setItem("murrhub-chocolate", "78");
     S = defaultState();
+    S.custom = kept;
+    if (window.MurrThemes) {
+      MurrThemes.persist({ preset: S.preset, chocolate: S.chocolate, custom: S.custom });
+    }
     applyTheme();
     if (location.hash === "#/client/welcome") render();
     else location.hash = "/client/welcome";
@@ -2241,14 +2254,6 @@ function selfTest() {
 
 function boot() {
   S = loadState();
-  const storedChoc = localStorage.getItem("murrhub-chocolate");
-  if (storedChoc != null && storedChoc !== "" && Number.isFinite(Number(storedChoc))) {
-    S.chocolate = Math.max(0, Math.min(100, Math.round(Number(storedChoc))));
-  } else if (typeof S.chocolate !== "number" || !Number.isFinite(S.chocolate)) {
-    S.chocolate = 78;
-  }
-  if (/[?&]theme=dark/.test(location.search || "")) S.theme = "dark";
-  if (/[?&]theme=light/.test(location.search || "")) S.theme = "light";
   applyTheme();
   bind();
   window.addEventListener("hashchange", render);

@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#4f3226" />
+  <meta name="theme-color" content="#14110e" />
   <title>MurrHub — прототип</title>
   <link rel="icon" href="media/paw-icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/paw-icon.png" />
   <link rel="stylesheet" href="css/app.css" />
   <script src="js/chocolate.js"></script>
-  <script>
-    (function () {
-      var n = localStorage.getItem("murrhub-chocolate");
-      var theme = localStorage.getItem("murrhub-theme");
-      var value = n == null || n === "" ? 78 : Number(n);
-      if (!isFinite(value)) value = 78;
-      document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
-      MurrChocolate.apply(value, theme === "dark" ? "dark" : "light");
-    })();
-  </script>
+  <script src="js/themes.js"></script>
+  <script>MurrThemes.paint();</script>
 </head>
 <body>
   <div class="splash" id="splash" hidden>
@@ -35,10 +27,18 @@
           <button type="button" id="role-client" data-role="client">Клиент</button>
           <button type="button" id="role-master" data-role="master">Мастер</button>
         </div>
-        <label class="choc" for="chocolate">Шоколад
+        <div class="theme-track" id="theme-track" role="group" aria-label="Тема" title="Стрелки влево и вправо — соседняя тема">
+          <button type="button" class="nav" id="theme-prev" aria-label="Предыдущая тема">‹</button>
+          <button type="button" id="theme-current" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-panel" aria-label="Список тем, сейчас Шоколад">
+            <span class="theme-swatches" id="theme-swatches" aria-hidden="true"><i style="background:#14110e"></i><i style="background:#262019"></i><i style="background:#e08955"></i></span>
+            <span class="theme-label" id="theme-label">Шоколад</span>
+            <span class="theme-chev" aria-hidden="true">▾</span>
+          </button>
+          <button type="button" class="nav" id="theme-next" aria-label="Следующая тема">›</button>
+        </div>
+        <label class="choc" id="choc" for="chocolate" hidden>Шоколад
           <input id="chocolate" type="range" min="0" max="100" value="78" aria-label="Светлая тема: от песка к шоколаду" />
         </label>
-        <button type="button" id="theme" class="ghost" aria-pressed="false">Тёмная</button>
         <button type="button" id="restart" class="ghost">Начать с начала</button>
         <a class="ghost" href="flows.html">Потоки</a>
         <button type="button" id="reset" class="ghost">Сбросить</button>
