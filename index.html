@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#14110e" />
   <title>MurrHub — прототип</title>
-  <link rel="icon" href="media/paw-icon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="media/paw-icon.png" />
+  <link rel="icon" href="media/instagram.png" type="image/png" />
+  <link rel="apple-touch-icon" href="media/instagram.png" />
   <link rel="stylesheet" href="css/app.css" />
   <script src="js/chocolate.js"></script>
   <script src="js/themes.js"></script>
@@ -15,12 +15,12 @@
 <body>
   <div class="splash" id="splash" hidden>
     <button type="button" class="splash-paw" id="splash-paw" aria-label="Открыть">
-      <img src="media/paw-icon.png" alt="" />
+      <span class="mark"></span>
     </button>
   </div>
   <div class="studio">
     <header class="bar">
-      <a class="brand" href="#/client/feed"><img class="mark" src="media/paw-icon.png" alt="" />Murr<em>Hub</em></a>
+      <a class="brand" href="#/client/feed"><span class="mark" aria-hidden="true"></span>Murr<em>Hub</em></a>
       <p class="bar-note">Прототип · Вильнюс · без сборки</p>
       <div class="bar-actions">
         <div class="switch" role="group" aria-label="Роль">
@@ -41,6 +41,7 @@
         </label>
         <button type="button" id="restart" class="ghost">Начать с начала</button>
         <a class="ghost" href="flows.html">Потоки</a>
+        <a class="ghost" id="open-name" href="name.html" target="murrhub-name">Название</a>
         <button type="button" id="reset" class="ghost">Сбросить</button>
       </div>
     </header>
@@ -66,5 +67,6 @@
   </div>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/namewin.js"></script>
 </body>
 </html>

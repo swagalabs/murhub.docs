@@ -1,0 +1,110 @@
+[
+  {
+    "id": "paw",
+    "label": "Лапа",
+    "source": "paw.jpg",
+    "mask": "media/logos/masks/paw.png"
+  },
+  {
+    "id": "trio",
+    "label": "Трое",
+    "source": "trio.jpg",
+    "mask": "media/logos/masks/trio.png"
+  },
+  {
+    "id": "burst",
+    "label": "Всплеск",
+    "source": "burst.jpg",
+    "mask": "media/logos/masks/burst.png"
+  },
+  {
+    "id": "hand",
+    "label": "Ладонь",
+    "source": "hand.jpg",
+    "mask": "media/logos/masks/hand.png"
+  },
+  {
+    "id": "spark",
+    "label": "Искра",
+    "source": "spark.jpg",
+    "mask": "media/logos/masks/spark.png"
+  },
+  {
+    "id": "sun",
+    "label": "Солнце",
+    "source": "sun.jpg",
+    "mask": "media/logos/masks/sun.png"
+  },
+  {
+    "id": "figure",
+    "label": "Фигура",
+    "source": "figure.jpg",
+    "mask": "media/logos/masks/figure.png"
+  },
+  {
+    "id": "cross",
+    "label": "Крест",
+    "source": "cross.jpg",
+    "mask": "media/logos/masks/cross.png"
+  },
+  {
+    "id": "tree",
+    "label": "Дерево",
+    "source": "tree.jpg",
+    "mask": "media/logos/masks/tree.png"
+  },
+  {
+    "id": "pinwheel",
+    "label": "Вертушка",
+    "source": "pinwheel.jpg",
+    "mask": "media/logos/masks/pinwheel.png"
+  },
+  {
+    "id": "bloom",
+    "label": "Розетка",
+    "source": "bloom.jpg",
+    "mask": "media/logos/masks/bloom.png"
+  },
+  {
+    "id": "ampersand",
+    "label": "Амперсанд",
+    "source": "ampersand.jpg",
+    "mask": "media/logos/masks/ampersand.png"
+  },
+  {
+    "id": "cat",
+    "label": "Кот",
+    "source": "cat.jpg",
+    "mask": "media/logos/masks/cat.png"
+  },
+  {
+    "id": "arrow",
+    "label": "Стрелка",
+    "source": "arrow.jpg",
+    "mask": "media/logos/masks/arrow.png"
+  },
+  {
+    "id": "spots",
+    "label": "Пятна",
+    "source": "spots.jpg",
+    "mask": "media/logos/masks/spots.png"
+  },
+  {
+    "id": "knot",
+    "label": "Узел",
+    "source": "knot.jpg",
+    "mask": "media/logos/masks/knot.png"
+  },
+  {
+    "id": "peaks",
+    "label": "Пики",
+    "source": "peaks.jpg",
+    "mask": "media/logos/masks/peaks.png"
+  },
+  {
+    "id": "rings",
+    "label": "Кольца",
+    "source": "rings.jpg",
+    "mask": "media/logos/masks/rings.png"
+  }
+]

@@ -34,12 +34,12 @@ const ICONS = {
 };
 
 const CRAFT = {
-  nails: '<path d="M10 33V22c0-6 1.8-11 4-11s4 5 4 11v11"/><path d="M20 33V19c0-7 1.8-12 4-12s4 5 4 12v14"/><path d="M30 33V22c0-6 1.8-11 4-11s4 5 4 11v11"/>',
-  hair: '<circle cx="16" cy="34" r="5"/><circle cx="32" cy="34" r="5"/><path d="M20.4 30.8 34 11"/><path d="M27.6 30.8 14 11"/>',
-  tattoo: '<circle cx="24" cy="24" r="15"/><path fill="currentColor" stroke="none" d="M24 13.2 26.5 20h7.1l-5.7 4.3 2.2 6.9L24 27.2l-6.1 3.9 2.2-6.9L14.4 20h7.1z"/>',
-  piercing: '<circle cx="11" cy="24" r="4"/><path d="M15 24h18"/><circle cx="37" cy="24" r="4"/>',
-  brows: '<path d="M6 16c5-6 12-6 16 1"/><circle cx="14" cy="26" r="2.6"/><path d="M26 17c4-7 11-6 16 1"/><circle cx="34" cy="26" r="2.6"/>',
-  lashes: '<path d="M9 29c6-9 24-9 30 0"/><path d="M12 26 8 16"/><path d="M20 23 18 12"/><path d="M28 23l2-11"/><path d="M36 26l5-9"/><path d="M16 31c5 4 11 4 16 0"/>',
+  nails: '<path fill-rule="evenodd" d="M7 33.5c0 3.2 2.4 5.5 5.4 5.5s5.4-2.3 5.4-5.5V21.5c0-6.2-2.2-11.2-5.4-11.2S7 15.3 7 21.5v12zm2.3-12.2c.2 1.5 1.4 2.2 3.1 2.2s2.9-.7 3.1-2.2c.1-.6-.6-1.1-1.6-1.4-1-.2-1.8-.2-3 0-1 .3-1.7.8-1.6 1.4zM19.2 35.5c0 3.4 2.6 6 6 6s6-2.6 6-6V17.2c0-7-2.5-12.4-6-12.4s-6 5.4-6 12.4v18.3zm2.4-14.6c.2 1.6 1.6 2.4 3.6 2.4s3.4-.8 3.6-2.4c.1-.7-.7-1.2-1.8-1.6-1.2-.3-2.2-.3-3.6 0-1.1.4-1.9.9-1.8 1.6zM31.2 33.5c0 3.2 2.4 5.5 5.4 5.5s5.4-2.3 5.4-5.5V21.5c0-6.2-2.2-11.2-5.4-11.2s-5.4 5-5.4 11.2v12zm2.3-12.2c.2 1.5 1.4 2.2 3.1 2.2s2.9-.7 3.1-2.2c.1-.6-.6-1.1-1.6-1.4-1-.2-1.8-.2-3 0-1 .3-1.7.8-1.6 1.4z"/>',
+  hair: '<path fill-rule="evenodd" d="M15 36.5a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4zm0-4.2a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM33 36.5a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4zm0-4.2a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M18.2 28.6 31.2 7.2" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round"/><path d="M29.8 28.6 16.8 7.2" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round"/><circle cx="24" cy="18.2" r="2.15"/>',
+  tattoo: '<path d="M34 30c5-.4 9-3 10-6.2-.8 4.6-4.6 7.6-9.2 7.4-.4-.4-.6-.8-.8-1.2z"/><ellipse cx="26" cy="31.5" rx="11" ry="7.2"/><path d="M29.5 36.2c.8 3.6 1.2 6.4-.2 7.6-1.6.6-3.2-.4-3.4-2.4-.2-2.4.8-4.6 1.6-6.2.6.2 1.4.6 2 1z"/><path d="M18.2 35.2c-.2 3.4-.8 6.2-2.6 7.2-1.8.6-3.2-.6-2.8-2.6.4-2.2 1.6-4.4 2.8-6 .8.2 1.8.8 2.6 1.4z"/><path d="M20 25C22 12 32 7 41 12c-4 1.2-6.6 4.2-7.2 7.6 1.6-.6 3.4-.2 4.2 1.2-3 .2-5.4 1.6-7.2 3.6-3.2.6-6.6 1-10.8.6z"/><path d="M16 24c2-1 4 1 5 4 1 3 .2 5-2 5-2.4 0-4-2-4.6-4.6-.6-2.2-.2-3.6 1.6-4.4z"/><ellipse cx="13.5" cy="16.5" rx="6.2" ry="5.2"/><ellipse cx="7.2" cy="18.4" rx="4.4" ry="2.7"/><path d="M11.6 12.2 8.2 3.4l5.2 7.6z"/><path d="M16.2 11.4 17.4 2.6l4.2 8.4z"/><path d="M23.2 24.4 25.4 17.2 27.8 24.2z"/><path d="M28.2 23.6 30.6 16.6 33 24z"/><circle cx="13.2" cy="16.2" r="2.2" fill="var(--surface)"/>',
+  piercing: '<circle cx="8.2" cy="24" r="7"/><path d="M13.4 20.4h21.2a3.6 3.6 0 0 1 0 7.2H13.4a3.6 3.6 0 0 1 0-7.2z"/><circle cx="39.8" cy="24" r="7"/>',
+  brows: '<path d="M2 33C7 12 20 6 33 11c8 3 12 9 13 16-2-2-6-4-12-3-8 1-16 6-20 16-2 4-6 3-8-1-1-2-2-4-4-6 0-1-.2-2-.4-3z"/>',
+  lashes: '<path d="M8 31.5c7-11 25-11 32 0-7 3-25 3-32 0z"/><path d="M11 28 5 13M19 24 15 9M29 24l4-15M37 28l7-13" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/>',
 };
 
 const GENDER = {
@@ -49,15 +49,11 @@ const GENDER = {
   private: ["Не сейчас", "Можно не говорить"],
 };
 
-const AGES = {
-  "18-24": ["18–24", "Только собираю своих"],
-  "25-34": ["25–34", "Уже знаю, чего не хочу"],
-  "35-44": ["35–44", "Точное важнее шумного"],
-  "45+": ["45 и дальше", "Спокойные руки важнее тренда"],
-};
+const AGE_MIN = 16;
+const AGE_MAX = 80;
 
 const HINTS = {
-  "client/welcome": "Сначала пол и возраст. Это выбор, не анкета. Потом интересы.",
+  "client/welcome": "Сначала роль: клиент или мастер. Потом пол и возраст колесом. Один человек — один профиль.",
   "client/onboarding": "Интересы иконками. После них первый экран — лента.",
   "client/search": "Поиск рядом с лентой. Дом — лента, не этот экран.",
   "client/paywall": "Свой запрос по ремеслу. Фото и текст без отдельного доступа.",
@@ -97,6 +93,7 @@ function defaultState() {
     chocolate: 78,
     custom: null,
     onboarded: false,
+    entryRole: "",
     gender: "",
     age: "",
     interests: [],
@@ -132,7 +129,8 @@ function defaultState() {
       draft: { masterId: "", serviceId: "", slotId: "", note: "" },
       chatText: "",
       comment: "",
-      aboutStep: "gender",
+      aboutStep: "role",
+      signin: false,
       composeTheme: "",
       clientForm: { photo: "", category: "", text: "", budget: "", district: "", when: "", masterId: "" },
       masterForm: { photos: [], title: "", text: "", serviceId: "", price: "", duration: "", compare: false, vibes: [] },
@@ -416,14 +414,20 @@ function clipText(text, max) {
 }
 
 function craftIcon(id) {
-  return '<svg class="craft" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (CRAFT[id] || "") + "</svg>";
+  return '<svg class="craft" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">' + (CRAFT[id] || "") + "</svg>";
 }
 
 function homePath() {
   if (!S) return "/client/welcome";
   if (S.onboarded) return "/client/feed";
-  if (!S.gender || !S.age) return "/client/welcome";
+  if (!S.entryRole || !S.gender || !S.age) return "/client/welcome";
   return "/client/onboarding";
+}
+
+function ageNumber() {
+  const n = Number(S.age);
+  if (n >= AGE_MIN && n <= AGE_MAX) return n;
+  return 25;
 }
 
 function avatarHtml(p, cls) {
@@ -628,26 +632,71 @@ function searchBody() {
     '<p class="section">Мастера</p>' + people;
 }
 
-function choiceButtons(map, act, current) {
-  return Object.keys(map).map((id) => {
-    const row = map[id];
-    const on = current === id;
-    return '<button type="button" class="choice' + (on ? " on" : "") + '" data-act="' + act + '" data-id="' + esc(id) + '"><b>' + esc(row[0]) + "</b><span>" + esc(row[1]) + "</span></button>";
+function drumHtml(kind, values, current) {
+  const items = values.map((v) => {
+    return '<button type="button" class="drum-item" role="option" data-act="drum-pick" data-value="' + esc(v.id) + '">' + esc(v.label) + "</button>";
   }).join("");
+  const label = kind === "age" ? "Возраст" : "Пол";
+  const words = kind === "gender" ? " words" : "";
+  return '<div class="drum-wrap"><div class="drum' + words + '" data-drum="' + kind + '" data-value="' + esc(current) + '" tabindex="0" role="listbox" aria-label="' + label + '">' +
+    '<div class="drum-pad" aria-hidden="true"></div>' + items +
+    '<div class="drum-pad" aria-hidden="true"></div></div></div>';
+}
+
+function genderItems() {
+  return Object.keys(GENDER).map((id) => ({ id: id, label: GENDER[id][0] }));
+}
+
+function ageItems() {
+  const items = [];
+  for (let n = AGE_MIN; n <= AGE_MAX; n++) items.push({ id: String(n), label: String(n) });
+  return items;
+}
+
+function signinSheet() {
+  if (!S.ui.signin) return "";
+  return '<div class="sheet" role="dialog" aria-labelledby="signin-title"><button class="teach-scrim" type="button" data-act="signin-close" aria-label="Закрыть"></button>' +
+    '<div class="teach-sheet"><p class="kicker">Вход</p><h2 id="signin-title">Войти</h2>' +
+    '<p>Один человек — один профиль. Это тот же аккаунт.</p>' +
+    '<label class="field"><span>Почта</span><input id="signin-mail" type="email" autocomplete="username" placeholder="ты@почта.com"/></label>' +
+    '<label class="field"><span>Пароль</span><input id="signin-pass" type="password" autocomplete="current-password" placeholder="пароль"/></label>' +
+    '<button class="btn primary block" type="button" data-act="signin-go">Войти</button></div></div>';
+}
+
+function screenRole() {
+  return '<section class="onboard rolescreen"><div class="role-stage"><p class="kicker">Один профиль</p><h1 class="display">Кто здесь</h1>' +
+    '<div class="role-pair">' +
+    '<button type="button" class="rolepick" data-act="role" data-id="client"><b>Клиент</b></button>' +
+    '<button type="button" class="rolepick" data-act="role" data-id="master"><b>Мастер</b></button>' +
+    "</div></div>" +
+    '<button type="button" class="login-line" data-act="signin">Есть аккаунт? Войти</button>' +
+    signinSheet() + "</section>";
+}
+
+function screenGender() {
+  const roleName = S.entryRole === "master" ? "Мастер" : "Клиент";
+  const current = GENDER[S.gender] ? S.gender : "woman";
+  return '<section class="onboard consider"><p class="kicker">Дальше</p><h1 class="display">Кто смотрит</h1>' +
+    '<p class="sub">Прокрути колесо. Это остаётся на телефоне.</p>' +
+    '<button class="chip backchip" type="button" data-act="about-back">' + esc(roleName) + "</button>" +
+    drumHtml("gender", genderItems(), current) +
+    '<p class="wheel-note" id="gender-note"></p>' +
+    '<button class="btn primary block" type="button" data-act="gender-next">Дальше</button></section>';
+}
+
+function screenAge() {
+  const picked = GENDER[S.gender][0];
+  return '<section class="onboard consider"><p class="kicker">Дальше</p><h1 class="display">Сколько лет этому взгляду</h1>' +
+    '<p class="sub">Не поле и не дата. Прокрути до числа.</p>' +
+    '<button class="chip backchip" type="button" data-act="about-back">' + esc(picked) + "</button>" +
+    drumHtml("age", ageItems(), String(ageNumber())) +
+    '<button class="btn primary block" type="button" data-act="age-next">Дальше</button></section>';
 }
 
 function screenWelcome() {
-  const ageStep = S.ui.aboutStep === "age" && S.gender && GENDER[S.gender];
-  if (ageStep) {
-    const picked = GENDER[S.gender][0];
-    return '<section class="onboard consider"><p class="kicker">Дальше</p><h1 class="display">Сколько лет этому взгляду</h1>' +
-      '<p class="sub">Не поле и не дата. Один диапазон, и можно идти к интересам.</p>' +
-      '<button class="chip backchip" type="button" data-act="about-back">' + esc(picked) + "</button>" +
-      '<div class="choices">' + choiceButtons(AGES, "age", S.age) + "</div></section>";
-  }
-  return '<section class="onboard consider"><p class="kicker">Сначала о тебе</p><h1 class="display">Кто смотрит</h1>' +
-    '<p class="sub">Два касания, без полей. Это остаётся на телефоне. Потом — что хочется смотреть.</p>' +
-    '<div class="choices">' + choiceButtons(GENDER, "gender", S.gender) + "</div></section>";
+  if (S.ui.aboutStep === "age" && S.gender && GENDER[S.gender] && S.entryRole) return screenAge();
+  if (S.ui.aboutStep === "gender" && S.entryRole) return screenGender();
+  return screenRole();
 }
 
 function screenOnboarding() {
@@ -657,9 +706,10 @@ function screenOnboarding() {
       craftIcon(id) +
       "<b>" + esc(CATS[id]) + '</b><span class="tick">' + (on ? icon("check") : "") + "</span></button>";
   }).join("");
+  const nextLabel = S.entryRole === "master" ? "В кабинет" : "В ленту";
   return '<section class="onboard"><p class="kicker">Вильнюс</p><h1 class="display">Что хочется смотреть?</h1>' +
     '<p class="sub">Ленту соберём сразу по этому. Она откроется первой. Поиск и карта останутся рядом.</p><div class="igrid">' + tiles +
-    '</div><button class="btn primary block" type="button" data-act="onboard">В ленту</button></section>';
+    '</div><button class="btn primary block" type="button" data-act="onboard">' + nextLabel + "</button></section>";
 }
 
 function screenSearch() {
@@ -1671,7 +1721,7 @@ function renderTabs(r) {
 function renderJumps(r) {
   const links = r.role === "master"
     ? [["Записи", "/master/bookings"], ["Подписка", "/master/paywall"], ["Новая работа", "/master/compose"], ["Слоты", "/master/slots"], ["Чат с Гретой", "/master/chat/t-greta"], ["Отзывы", "/master/reviews"], ["Оплаты позже", "/master/later"]]
-    : [["Пол и возраст", "/client/welcome"], ["Интересы", "/client/onboarding"], ["Лента", "/client/feed"], ["Поиск", "/client/search"], ["Карта", "/client/map"], ["Календарь", "/client/chats/calendar"], ["Текст", "/client/post/p-alina-note"], ["До и после", "/client/post/p-alina-ba"], ["Профиль Алины", "/client/master/alina"], ["Запись", "/client/book/alina"], ["Окна скрыты", "/client/book/kasparas"], ["Чат", "/client/chat/t-alina"], ["Отзыв", "/client/review/v-eva"], ["Запрос", "/client/compose"]];
+    : [["Роль, пол, возраст", "/client/welcome"], ["Интересы", "/client/onboarding"], ["Лента", "/client/feed"], ["Поиск", "/client/search"], ["Карта", "/client/map"], ["Календарь", "/client/chats/calendar"], ["Текст", "/client/post/p-alina-note"], ["До и после", "/client/post/p-alina-ba"], ["Профиль Алины", "/client/master/alina"], ["Запись", "/client/book/alina"], ["Окна скрыты", "/client/book/kasparas"], ["Чат", "/client/chat/t-alina"], ["Отзыв", "/client/review/v-eva"], ["Запрос", "/client/compose"]];
   const el = document.getElementById("jumps");
   if (el) el.innerHTML = links.map((l) => '<a href="#' + l[1] + '">' + l[0] + "</a>").join("");
 }
@@ -1731,9 +1781,11 @@ function restartStory() {
   S.onboarded = false;
   S.feedTipSeen = false;
   S.interests = [];
+  S.entryRole = "";
   S.gender = "";
   S.age = "";
-  S.ui.aboutStep = "gender";
+  S.ui.aboutStep = "role";
+  S.ui.signin = false;
   save();
   if (location.hash !== "#/client/welcome") location.hash = "/client/welcome";
   else render();
@@ -1786,6 +1838,100 @@ function render() {
   }
   const thread = screen.querySelector(".thread");
   if (thread) thread.scrollTop = thread.scrollHeight;
+  bindDrums();
+}
+
+function drumIndex(drum) {
+  const item = drum.querySelector(".drum-item");
+  const itemH = (item && item.offsetHeight) || 64;
+  const items = drum.querySelectorAll(".drum-item");
+  let i = Math.round(drum.scrollTop / itemH);
+  if (i < 0) i = 0;
+  if (i > items.length - 1) i = items.length - 1;
+  return { i: i, itemH: itemH, items: items };
+}
+
+function paintDrum(drum) {
+  const pos = drumIndex(drum);
+  pos.items.forEach((n, j) => {
+    const d = Math.abs(j - pos.i);
+    n.classList.toggle("is-on", d === 0);
+    n.classList.toggle("is-near", d === 1);
+    n.classList.toggle("is-far", d >= 2);
+    n.setAttribute("aria-selected", d === 0 ? "true" : "false");
+  });
+  const note = document.getElementById("gender-note");
+  if (note && drum.dataset.drum === "gender") {
+    const id = pos.items[pos.i] ? pos.items[pos.i].dataset.value : "";
+    note.textContent = (GENDER[id] && GENDER[id][1]) || "";
+  }
+  return pos;
+}
+
+function bindDrums() {
+  document.querySelectorAll("[data-drum]").forEach((el) => {
+    const item = el.querySelector(".drum-item");
+    const itemH = (item && item.offsetHeight) || 64;
+    const items = el.querySelectorAll(".drum-item");
+    let index = 0;
+    items.forEach((n, i) => { if (n.dataset.value === el.dataset.value) index = i; });
+    el.scrollTop = index * itemH;
+    const paint = () => paintDrum(el);
+    el.addEventListener("scroll", () => {
+      if (el._raf) cancelAnimationFrame(el._raf);
+      el._raf = requestAnimationFrame(paint);
+    }, { passive: true });
+    el.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      e.preventDefault();
+      const dir = e.key === "ArrowDown" ? 1 : -1;
+      const h = (el.querySelector(".drum-item") || {}).offsetHeight || 64;
+      el.scrollTo({ top: el.scrollTop + dir * h, behavior: "smooth" });
+    });
+    el.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      el._drag = { y: e.clientY, top: el.scrollTop, moved: 0, lastY: e.clientY, lastT: performance.now(), vel: 0 };
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", (e) => {
+      const d = el._drag;
+      if (!d) return;
+      const dy = e.clientY - d.y;
+      d.moved = Math.max(d.moved, Math.abs(dy));
+      el._moved = d.moved;
+      el.scrollTop = d.top - dy;
+      const now = performance.now();
+      const dt = now - d.lastT;
+      if (dt > 0) d.vel = (d.lastY - e.clientY) / dt;
+      d.lastY = e.clientY;
+      d.lastT = now;
+    });
+    const endDrag = () => {
+      const d = el._drag;
+      if (!d) return;
+      el._drag = null;
+      if (d.moved > 6 && Math.abs(d.vel) > 0.25) {
+        el.scrollTo({ top: el.scrollTop + d.vel * 220, behavior: "smooth" });
+      }
+    };
+    el.addEventListener("pointerup", endDrag);
+    el.addEventListener("pointercancel", endDrag);
+    el.addEventListener("click", (e) => {
+      if (el._moved > 6) {
+        e.preventDefault();
+        e.stopPropagation();
+        el._moved = 0;
+      }
+    }, true);
+    paint();
+  });
+}
+
+function readDrum(kind) {
+  const drum = document.querySelector('[data-drum="' + kind + '"]');
+  if (!drum) return "";
+  const pos = paintDrum(drum);
+  return pos.items[pos.i] ? pos.items[pos.i].dataset.value : "";
 }
 
 function assignField(path, value) {
@@ -1797,18 +1943,62 @@ function assignField(path, value) {
 function onAct(el) {
   const act = el.dataset.act;
   const id = el.dataset.id;
-  if (act === "gender") {
-    S.gender = id;
+  if (act === "role") {
+    if (id !== "client" && id !== "master") return;
+    S.entryRole = id;
+    S.ui.aboutStep = "gender";
+    S.ui.signin = false;
+    save(); render(); return;
+  }
+  if (act === "signin") {
+    S.ui.signin = true;
+    save(); render();
+    const mail = document.getElementById("signin-mail");
+    if (mail) mail.focus();
+    return;
+  }
+  if (act === "signin-close") {
+    S.ui.signin = false;
+    save(); render(); return;
+  }
+  if (act === "signin-go") {
+    const mail = document.getElementById("signin-mail");
+    const pass = document.getElementById("signin-pass");
+    const email = mail ? mail.value.trim() : "";
+    const secret = pass ? pass.value : "";
+    if (!email || !secret) return toast("Напиши почту и пароль");
+    S.ui.signin = false;
+    S.onboarded = true;
+    save();
+    go(S.entryRole === "master" ? "/master/bookings" : "/client/feed");
+    return;
+  }
+  if (act === "drum-pick") {
+    const drum = el.closest("[data-drum]");
+    if (!drum) return;
+    const items = drum.querySelectorAll(".drum-item");
+    const itemH = (items[0] && items[0].offsetHeight) || 64;
+    let i = 0;
+    items.forEach((n, idx) => { if (n === el) i = idx; });
+    drum.scrollTo({ top: i * itemH, behavior: "auto" });
+    paintDrum(drum);
+    return;
+  }
+  if (act === "gender-next") {
+    const picked = readDrum("gender");
+    if (!GENDER[picked]) return;
+    S.gender = picked;
     S.ui.aboutStep = "age";
     save(); render(); return;
   }
-  if (act === "age") {
-    if (!AGES[id]) return;
-    S.age = id;
+  if (act === "age-next") {
+    const n = Number(readDrum("age"));
+    if (n < AGE_MIN || n > AGE_MAX) return;
+    S.age = String(n);
     save(); go("/client/onboarding"); return;
   }
   if (act === "about-back") {
-    S.ui.aboutStep = "gender";
+    S.ui.aboutStep = S.ui.aboutStep === "age" ? "gender" : "role";
     save();
     if (parseRoute().name !== "welcome") go("/client/welcome");
     else render();
@@ -1820,7 +2010,8 @@ function onAct(el) {
   }
   if (act === "onboard") {
     if (!S.interests.length) return toast("Выбери хотя бы одно");
-    S.onboarded = true; save(); go("/client/feed"); return;
+    S.onboarded = true; save();
+    go(S.entryRole === "master" ? "/master/bookings" : "/client/feed"); return;
   }
   if (act === "like" || act === "save") {
     const bag = act === "like" ? S.likes : S.saves;
@@ -2121,6 +2312,10 @@ function bind() {
     if (e.key !== "Enter" || e.shiftKey) return;
     if (e.target.id === "chatbox") { e.preventDefault(); onAct({ dataset: { act: "send", id: "" } }); }
     if (e.target.id === "commentbox") { e.preventDefault(); onAct({ dataset: { act: "comment", id: e.target.dataset.post } }); }
+    if (e.target.id === "signin-mail" || e.target.id === "signin-pass") {
+      e.preventDefault();
+      onAct({ dataset: { act: "signin-go", id: "" } });
+    }
   });
   phone.addEventListener("error", (e) => {
     if (e.target && e.target.tagName === "IMG") e.target.style.opacity = "0";
@@ -2237,8 +2432,22 @@ function selfTest() {
     ok(screenPost("p-alina-ba", "client").indexOf("ноя") === -1, "post hides the date");
     ok(html.indexOf("Посты из жизни") !== -1, "life posts called out as absent");
     ok(screenPost("p-kas-back", "client").indexOf("Цены на этой работе нет") !== -1 || screenPost("p-alina-work", "client").indexOf("нет цены") !== -1, "missing price copy");
+    S.entryRole = "";
+    S.ui.signin = false;
+    S.ui.aboutStep = "role";
+    const roleHtml = screenWelcome();
+    ok(roleHtml.indexOf("Клиент") !== -1 && roleHtml.indexOf("Мастер") !== -1 && roleHtml.indexOf("role-pair") !== -1, "role choice is side by side");
+    ok(roleHtml.indexOf("Есть аккаунт? Войти") !== -1 && roleHtml.indexOf("<input") === -1, "login line, sheet closed");
+    S.entryRole = "client";
     S.ui.aboutStep = "gender";
-    ok(screenWelcome().indexOf("Женщина") !== -1 && screenWelcome().indexOf("<input") === -1, "gender is a choice");
+    const genderHtml = screenWelcome();
+    ok(genderHtml.indexOf("Женщина") !== -1 && genderHtml.indexOf("Мужчина") !== -1 && genderHtml.indexOf("Иначе") !== -1 && genderHtml.indexOf("Не сейчас") !== -1, "gender choices");
+    ok(genderHtml.indexOf('data-drum="gender"') !== -1 && genderHtml.indexOf("<input") === -1, "gender is a wheel");
+    S.gender = "woman";
+    S.ui.aboutStep = "age";
+    const ageHtml = screenWelcome();
+    ok(ageHtml.indexOf('data-drum="age"') !== -1 && ageHtml.indexOf(">16<") !== -1 && ageHtml.indexOf(">80<") !== -1, "age wheel 16 through 80");
+    ok(ageHtml.indexOf(">15<") === -1 && ageHtml.indexOf(">81<") === -1, "age stays inside 16 and 80");
     ok(screenOnboarding().indexOf("<img") === -1 && screenOnboarding().indexOf("craft") !== -1, "interest icons");
     ok(screenOnboarding().indexOf("Пирсинг") !== -1, "piercing interest");
     ok(screenFeed().indexOf("feedflow") !== -1 && screenFeed().indexOf("textinner") !== -1 && screenFeed().indexOf("...") !== -1, "text tile in feed");
