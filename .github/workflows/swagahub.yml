@@ -1,0 +1,53 @@
+name: Publish SwagaHub documentation
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: swagahub-docs-main
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Build on VPS
+        id: build
+        env:
+          VPS_HOST: ${{ secrets.SWAGAHUB_SSH_HOST }}
+          VPS_USER: ${{ secrets.SWAGAHUB_SSH_USER }}
+          VPS_PORT: ${{ vars.SWAGAHUB_SSH_PORT || '22' }}
+          KEY: ${{ secrets.SWAGAHUB_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.SWAGAHUB_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          install -m700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy
+          chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          result=$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes -i ~/.ssh/deploy -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" "$GITHUB_SHA")
+          if [[ "$result" == superseded ]]; then exit 0; fi
+          revision=${result##*$'\npublished '}
+          revision=${revision#published }
+          [[ "$revision" =~ ^[a-f0-9]{40}$ ]]
+          echo "revision=$revision" >> "$GITHUB_OUTPUT"
+      - name: Verify Pages deployment and public revision
+        if: steps.build.outputs.revision != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVISION: ${{ steps.build.outputs.revision }}
+        run: |
+          set -euo pipefail
+          for attempt in {1..100}; do
+            run=$(gh api "repos/swagalabs/murhub-pages/actions/workflows/pages.yml/runs?head_sha=$REVISION" --jq '.workflow_runs[0] | [.status,.conclusion] | join("/")')
+            case "$run" in
+              completed/success)
+                if curl -fsSL "https://swagalabs.github.io/murhub-pages/version.json?check=$GITHUB_RUN_ID-$attempt" | jq -e --arg sha "$GITHUB_SHA" '.sha==$sha'; then exit 0; fi ;;
+              completed/*) echo "Pages workflow: $run"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          echo 'Timed out waiting for Pages'; exit 1
